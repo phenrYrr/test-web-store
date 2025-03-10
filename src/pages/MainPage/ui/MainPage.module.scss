@@ -1,0 +1,14 @@
+.MainPage{
+    margin: 0 var(--index);
+    height: 100vh;
+    color: white;
+}
+
+.Header {
+    border-bottom-left-radius: var(--btn-border-radius);
+    border-bottom-right-radius: var(--btn-border-radius);
+}
+
+.main {
+    padding-top: 50px;
+}

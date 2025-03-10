@@ -1,0 +1,102 @@
+:root {
+    // Themes
+
+    --bg-color: #ffffffa0;
+    --bg-color-gray: #e5e5e5;
+    --primary-color-w: #ff5e00;
+    --text-color-w: #FFF;
+    --secondary-color-w: #fd9540;
+    --bg-color-white: #fff;
+    --primary-color-b: #f78432;
+    --text-color-b: #000000cf;
+    --secondary-color-b: #ff1c1c;
+
+  // header-height ~
+  --index: calc(0.83vh + 0.87vw);
+  --header-height: calc(var(--index) * 3);
+
+  // scroll size
+  --scroll-size: calc(var(--index) * 0.4);
+  --scroll-border-radius: calc(var(--index) * 0.2);
+
+  // classic Font
+  --font-family-main: 'Roboto', sans-serif;
+  --font-size-m: calc(var(--index) * 0.85);
+  --font-m: 400 var(--font-size-m) / 115% var(--font-family-main);
+
+  // font l
+  --font-size-l: var(--index);
+  --font-l: 400 var(--font-size-l) / 115% var(--font-family-main);
+
+  // btn
+  --btn-padding-l: 0.7em 0.8em;
+  --btn-padding-m: 0.8em 1em;
+  --btn-border-radius: 0.5em;
+
+  // ---------
+  // Title Font
+  --title-font-family: 'Inter', sans-serif;
+  --title-hero-font-size: calc(var(--index) * 2.5);
+  --title-hero-font: 600 var(--title-hero-font-size) / 115% var(--title-font-family);
+
+  // subtitle
+  --title-subtitle-font-size: calc(var(--index) * 1.5);
+  --title-subtitle-font: 500 var(--title-subtitle-font-size) / 115% var(--title-font-family);
+
+  // ---
+
+  // default border for card
+  --border-size-d: calc(var(--index) * 0.1);
+  --border-radius-size-d: calc(var(--index) * 0.5);
+
+  // glass-bg
+  --glass-bg-color: rgb(75 75 75 / 30%);
+  --glass-bg-blur: calc(var(--index) * 0.4);
+
+  // animation
+  --transition-duration: 0.3s;
+
+  // indexs
+  --z-index-modal: 10;
+  --z-index-header: 9;
+  --z-index-select: 3;
+
+  // overlay-color
+  --overlay-color: rgba(0 0 0 / 85%);
+  --overlay-color-2: rgba(0 0 0 / 66%);
+  --blackout: linear-gradient(0deg, #000 0%, rgb(0 0 0 / 0%) 100%);
+
+  // container
+  --container-margin: var(--index);
+
+  // medias
+  @media(width <= 1200px){
+    --index: calc(0.86vh + 0.9vw)
+  }
+
+  @media(width <= 800px){
+    --index: calc(1.1vh + 1.2vw);
+    --font-size-m: calc(var(--index) * 0.9);
+    --font-size-l: calc(var(--index) * 1.1);
+  }
+
+  @media(width <= 600px){
+    --index: calc(1.2vh + 1.4vw);
+    --title-hero-font-size: calc(var(--index) * 2);
+    --title-subtitle-font-size: calc(var(--index) * 1.2);
+    --font-size-m: calc(var(--index) * 1);
+    --font-size-l: calc(var(--index) * 1.2);
+    --border-radius-size-d: calc(var(--index) * 0.6);
+  }
+
+  @media(width <= 400px){
+    --index: calc(1.4vh + 1vw);
+    --container-margin: calc(var(--index) * 0.5);
+
+    // --index: calc(1.5vh + 1.3vw);
+    --title-hero-font-size: calc(var(--index) * 2.2);
+    --title-subtitle-font-size: calc(var(--index) * 1.4);
+    --font-size-m: calc(var(--index) * 1.1);
+    --font-size-l: calc(var(--index) * 1.25);
+  }
+  }

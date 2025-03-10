@@ -1,0 +1,8 @@
+.NotFound {
+    padding: calc(var(--index) * 0.7);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    height: calc(95vh - var(--header-height));
+}

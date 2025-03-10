@@ -1,0 +1,9 @@
+.Header {
+    padding: 0 20px;
+    background-color: var(--bg-color-gray);
+    height: var(--header-height);
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
+}

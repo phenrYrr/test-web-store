@@ -1,0 +1,21 @@
+.CartPage{
+    padding: calc(var(--index) * 0.7);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    height: calc(95vh - var(--header-height));
+}
+
+.Item {
+    padding-bottom: 20px;
+}
+
+.Text {
+    padding-left: 50px;
+}
+
+.Wrapper {
+    max-height: 600px;
+    overflow-y: scroll;
+}
