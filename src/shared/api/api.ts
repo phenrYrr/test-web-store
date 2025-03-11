@@ -4,7 +4,7 @@ import { Product } from 'entities/Product/model/types/product';
 export const goodsApi = createApi({
     reducerPath: 'goodsApi',
     baseQuery: fetchBaseQuery({
-        baseUrl: process.env.REACT_APP_API_GET,
+        baseUrl: process.env.REACT_APP_API_GET || "https://test-frontend.dev.int.perx.ru/api"
     }),
     endpoints: (builder) => ({
         getGoods: builder.query<Product[], string | void>({
