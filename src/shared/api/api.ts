@@ -9,10 +9,10 @@ export const goodsApi = createApi({
     endpoints: (builder) => ({
         getGoods: builder.query<Product[], string | void>({
             query: (dealers) =>
-                dealers ? `goods?dealers=${dealers}` : 'goods',
+                dealers ? `goods/?dealers=${dealers}` : 'goods/',
         }),
         getDealers: builder.query<string[], void>({
-            query: () => 'dealers',
+            query: () => 'dealers/',
         }),
     }),
 });
