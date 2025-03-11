@@ -11,33 +11,33 @@ interface MainPageProps {
     id?: string;
 }
 
+declare global {
+    interface Window {
+        App?: {
+            dealers?: string[];
+        };
+    }
+}
+
 export default function MainPage(props: MainPageProps) {
     const { className } = props;
-    const [selectedDealers, setSelectedDealers] = useState<string | undefined>(
-        undefined,
-    );
+    const [selectedDealers, setSelectedDealers] = useState<string[] | undefined>(undefined);
 
     useEffect(() => {
-        // @ts-ignore
-        if (window.App && window.App.dealers) {
-            // @ts-ignore
-            setSelectedDealers(window.App.dealers.join(','));
+        if (window.App?.dealers) {
+            setSelectedDealers(window.App.dealers.length > 0 ? window.App.dealers : undefined);
         }
     }, []);
 
-    const { data: goods, isLoading: isLoadingGoods } = useGetGoodsQuery(
-        selectedDealers,
-        {
-            skip: !selectedDealers,
-        },
-    );
+    const { data: goods, isLoading: isLoadingGoods } = useGetGoodsQuery(selectedDealers);
 
-    if (isLoadingGoods)
+    if (isLoadingGoods) {
         return (
             <div>
                 <Loader />
             </div>
         );
+    }
 
     return (
         <div className={classNames(cls.MainPage, {}, [className])}>

@@ -11,6 +11,7 @@ export const productFetch = createAsyncThunk<
     const { api, rejectWithValue } = thunkApi.extra;
 
     try {
+        //@ts-ignore
         const response = await api.endpoints.getGoods.initiate(`/${productId}`);
 
         // @ts-ignore

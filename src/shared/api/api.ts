@@ -7,9 +7,11 @@ export const goodsApi = createApi({
         baseUrl: process.env.REACT_APP_API_GET || "https://test-frontend.dev.int.perx.ru/api"
     }),
     endpoints: (builder) => ({
-        getGoods: builder.query<Product[], string | void>({
-            query: (dealers) =>
-                dealers ? `goods/?dealers=${dealers}` : 'goods/',
+        getGoods: builder.query<Product[], string[] | void>({
+            query: (dealers) => {
+                const queryString = dealers && dealers.length > 0 ? `?dealers=${dealers.join(',')}` : '';
+                return `goods/${queryString}`;
+            },
         }),
         getDealers: builder.query<string[], void>({
             query: () => 'dealers/',
