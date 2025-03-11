@@ -2,7 +2,9 @@ import classNames from 'shared/lib/classNames/classNames';
 import Header from 'widgets/Header/ui/Header';
 import cls from './MainPage.module.scss';
 import ProductListItem from 'entities/Product/ui/ProductListItem/ProductListItem';
-import { useGetDealersQuery, useGetGoodsQuery } from 'shared/api/api';
+import { useGetGoodsQuery } from 'shared/api/api';
+import { useEffect, useState } from 'react';
+import Loader from 'shared/ui/Loader/Loader';
 
 interface MainPageProps {
     className?: string;
@@ -11,23 +13,39 @@ interface MainPageProps {
 
 export default function MainPage(props: MainPageProps) {
     const { className } = props;
+    const [selectedDealers, setSelectedDealers] = useState<string | undefined>(
+        undefined,
+    );
 
-    // Если список диллеров указан
+    useEffect(() => {
+        // @ts-ignore
+        if (window.App && window.App.dealers) {
+            // @ts-ignore
+            setSelectedDealers(window.App.dealers.join(','));
+        }
+    }, []);
 
-    const { data: dealers } = useGetDealersQuery();
-    const { data: products, isLoading } = useGetGoodsQuery(dealers?.join(', '));
+    const { data: goods, isLoading: isLoadingGoods } = useGetGoodsQuery(
+        selectedDealers,
+        {
+            skip: !selectedDealers,
+        },
+    );
 
-    // Если список диллеров не указан
-
-    // const { data: products, isLoading } = useGetGoodsQuery();
+    if (isLoadingGoods)
+        return (
+            <div>
+                <Loader />
+            </div>
+        );
 
     return (
         <div className={classNames(cls.MainPage, {}, [className])}>
             <Header className={cls.Header} />
             <div className={classNames(cls.main, {}, [className])}>
                 <ProductListItem
-                    product={products || []}
-                    isLoading={isLoading}
+                    product={goods || []}
+                    isLoading={isLoadingGoods}
                 />
             </div>
         </div>

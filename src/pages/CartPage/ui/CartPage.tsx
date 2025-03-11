@@ -76,7 +76,11 @@ export default function CartPage({ className }: CartPageProps) {
                                             <Image
                                                 className={cls.Image}
                                                 width={100}
-                                                src={process.env.REACT_APP_API_PHOTO + item.image}
+                                                src={
+                                                    process.env
+                                                        .REACT_APP_API_PHOTO +
+                                                    item.image
+                                                }
                                                 alt={item.name}
                                             />
                                             <Typography.Text>

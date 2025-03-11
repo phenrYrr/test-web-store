@@ -8,9 +8,12 @@
 <body>
     <div id="root"></div>
     <script>
-      document.addEventListener('DOMContentLoaded', () => {
+      document.addEventListener('DOMContentLoaded', () => { 
+        window.App = {
+          dealers: ["0c4aab30", "1efa7e46"]
+        };
         if (window.App && window.App.start) {
-          window.App.start({ dealers: ['id1', 'id2'] });
+          window.App.start();
         }
       });
     </script>

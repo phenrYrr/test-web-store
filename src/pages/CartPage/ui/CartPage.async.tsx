@@ -1,3 +1,3 @@
-import { lazy } from "react";
+import { lazy } from 'react';
 
-export const CartAsyncPage = lazy(() => import('./CartPage'))
+export const CartAsyncPage = lazy(() => import('./CartPage'));
