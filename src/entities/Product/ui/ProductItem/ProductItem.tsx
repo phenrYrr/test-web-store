@@ -18,6 +18,8 @@ export default function ProductItem(props: ProductItemProps) {
         dispatch(CartActions.addToCart(product));
     };
 
+    const url = process.env.REACT_APP_API_PHOTO || "https://test-frontend.dev.int.perx.ru"
+
     return (
         <div className={classNames('', {}, [className])}>
             <Card
@@ -29,7 +31,7 @@ export default function ProductItem(props: ProductItemProps) {
                     <Image
                         className={cls.Image}
                         width={100}
-                        src={process.env.REACT_APP_API_PHOTO + product?.image}
+                        src={url + product?.image}
                         alt={product?.name}
                     />
                 </div>
