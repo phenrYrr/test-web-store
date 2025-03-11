@@ -10,6 +10,8 @@ interface ProductItemProps {
     product: Product;
 }
 
+export const photoURL = process.env.REACT_APP_API_PHOTO || "https://test-frontend.dev.int.perx.ru"
+
 export default function ProductItem(props: ProductItemProps) {
     const { className, product } = props;
     const dispatch = useAppDispatch();
@@ -17,8 +19,6 @@ export default function ProductItem(props: ProductItemProps) {
     const handleAddItemToCart = () => {
         dispatch(CartActions.addToCart(product));
     };
-
-    const url = process.env.REACT_APP_API_PHOTO || "https://test-frontend.dev.int.perx.ru"
 
     return (
         <div className={classNames('', {}, [className])}>
@@ -31,7 +31,7 @@ export default function ProductItem(props: ProductItemProps) {
                     <Image
                         className={cls.Image}
                         width={100}
-                        src={url + product?.image}
+                        src={photoURL + product?.image}
                         alt={product?.name}
                     />
                 </div>

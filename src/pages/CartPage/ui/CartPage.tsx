@@ -4,6 +4,7 @@ import cls from './CartPage.module.scss';
 import { Button, Typography, Input, Image, Card, Flex } from 'antd';
 import { MinusOutlined, PlusOutlined } from '@ant-design/icons';
 import { useState } from 'react';
+import { photoURL } from 'entities/Product/ui/ProductItem/ProductItem';
 
 interface CartPageProps {
     className?: string;
@@ -76,9 +77,8 @@ export default function CartPage({ className }: CartPageProps) {
                                             <Image
                                                 className={cls.Image}
                                                 width={100}
-                                                src={
-                                                    process.env
-                                                        .REACT_APP_API_PHOTO +
+                                                src={photoURL
+                                                     +
                                                     item.image
                                                 }
                                                 alt={item.name}
